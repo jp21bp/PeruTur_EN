@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6f1360202ef8fe64e400fc63a8aef904 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed; 
+    bottom: 30px; left: 30px; width: 180px; 
+    background-color: white; 
+    border:2px solid grey; 
+    z-index:9999; 
+    font-size:14px;
+    padding: 10px;
+">
+<b>Legend</b><br>
+<i style="background:#584A96; opacity:0.5; border-radius:50%; width:12px; height:12px; display:inline-block;"></i> 5 km - 6 free entry sites<br>
+<i style="background:#702c54; opacity:0.5; border-radius:50%; width:12px; height:12px; display:inline-block;"></i> 10 km - 9 free entry sites<br>
+<i style="background:#ff0000; opacity:0.5; border-radius:50%; width:12px; height:12px; display:inline-block;"></i> 15 km - 11 free entry sites<br>
+<i style="background:#ffa500; opacity:0.5; border-radius:50%; width:12px; height:12px; display:inline-block;"></i> 20 km - 16 free entry sites<br>
+<i style="background:#ffff00; opacity:0.5; border-radius:50%; width:12px; height:12px; display:inline-block;"></i> 25 km - 16 free entry sites
+</div>
+    
+            <div class="folium-map" id="map_6f1360202ef8fe64e400fc63a8aef904" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6f1360202ef8fe64e400fc63a8aef904 = L.map(
+                "map_6f1360202ef8fe64e400fc63a8aef904",
+                {
+                    center: [-13.162864352674784, -72.54524856805801],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8cc8eed927ef786814f6bafe6e3a65fb = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8cc8eed927ef786814f6bafe6e3a65fb.addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var marker_36754e58ec00e0cac51c12bd5ac64437 = L.marker(
+                [-13.162864352674784, -72.54524856805801],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_986183b914e6971a46127e28629b3306 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_02edb931fa4fdbace870347ec993032b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_24870a2e361033456ef77ac5ced28e48 = $(`<div id="html_24870a2e361033456ef77ac5ced28e48" style="width: 100.0%; height: 100.0%;">Machu Picchu</div>`)[0];
+                popup_02edb931fa4fdbace870347ec993032b.setContent(html_24870a2e361033456ef77ac5ced28e48);
+            
+        
+
+        marker_36754e58ec00e0cac51c12bd5ac64437.bindPopup(popup_02edb931fa4fdbace870347ec993032b)
+        ;
+
+        
+    
+    
+                marker_36754e58ec00e0cac51c12bd5ac64437.setIcon(icon_986183b914e6971a46127e28629b3306);
+            
+    
+            var circle_ef3901e913f1ec0446d03836b58bbb1e = L.circle(
+                [-13.162864352674784, -72.54524856805801],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25000, "stroke": true, "weight": 3}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            circle_ef3901e913f1ec0446d03836b58bbb1e.bindTooltip(
+                `<div>
+                     16
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_08465b1eb24b4bfd7405c8937bc98ff2 = L.circle(
+                [-13.162864352674784, -72.54524856805801],
+                {"bubblingMouseEvents": true, "color": "#ffa500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20000, "stroke": true, "weight": 3}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            circle_08465b1eb24b4bfd7405c8937bc98ff2.bindTooltip(
+                `<div>
+                     16
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_257a1c63e1b77c62da0e5bf265cf53a4 = L.circle(
+                [-13.162864352674784, -72.54524856805801],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            circle_257a1c63e1b77c62da0e5bf265cf53a4.bindTooltip(
+                `<div>
+                     11
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b4f811bd4f7df6b35e7f4601473783b6 = L.circle(
+                [-13.162864352674784, -72.54524856805801],
+                {"bubblingMouseEvents": true, "color": "#702c54", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#702c54", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10000, "stroke": true, "weight": 3}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            circle_b4f811bd4f7df6b35e7f4601473783b6.bindTooltip(
+                `<div>
+                     9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_20590ca4aa6671bb7ba6628fd79b5af9 = L.circle(
+                [-13.162864352674784, -72.54524856805801],
+                {"bubblingMouseEvents": true, "color": "#584A96", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#584A96", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": true, "weight": 3}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            circle_20590ca4aa6671bb7ba6628fd79b5af9.bindTooltip(
+                `<div>
+                     6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bbfc1f2b9e87a73e4f250c749263f54d = L.marker(
+                [-13.154594451375802, -72.53606811711522],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_fd7362c9a75c55551d9603d8b7d9d369 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bf3d788f159086ef24d66d46dee3b885 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef32ea90765b3442ef66ce41ad22937f = $(`<div id="html_ef32ea90765b3442ef66ce41ad22937f" style="width: 100.0%; height: 100.0%;">Montaña De Putucusi</div>`)[0];
+                popup_bf3d788f159086ef24d66d46dee3b885.setContent(html_ef32ea90765b3442ef66ce41ad22937f);
+            
+        
+
+        marker_bbfc1f2b9e87a73e4f250c749263f54d.bindPopup(popup_bf3d788f159086ef24d66d46dee3b885)
+        ;
+
+        
+    
+    
+                marker_bbfc1f2b9e87a73e4f250c749263f54d.setIcon(icon_fd7362c9a75c55551d9603d8b7d9d369);
+            
+    
+            var marker_1a2897de4c0a40b95d863e0124b587ed = L.marker(
+                [-13.1542099, -72.525537],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_5454aee53d20c4b33695c509bb366bb9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_19f19fb6c2d1b31b76d1e903a568e1f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2a6cf92bf5cccc8103ef60da6c1057f = $(`<div id="html_d2a6cf92bf5cccc8103ef60da6c1057f" style="width: 100.0%; height: 100.0%;">Templo De La  Virgen Del Carmen De Machupicchu</div>`)[0];
+                popup_19f19fb6c2d1b31b76d1e903a568e1f2.setContent(html_d2a6cf92bf5cccc8103ef60da6c1057f);
+            
+        
+
+        marker_1a2897de4c0a40b95d863e0124b587ed.bindPopup(popup_19f19fb6c2d1b31b76d1e903a568e1f2)
+        ;
+
+        
+    
+    
+                marker_1a2897de4c0a40b95d863e0124b587ed.setIcon(icon_5454aee53d20c4b33695c509bb366bb9);
+            
+    
+            var marker_a1c8230d1ff82d7f74798967859a49ab = L.marker(
+                [-13.1535917, -72.5244362],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_a152b732aeca87be001ddcdecfd02380 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4273db79fcbebbef008685e60a015dea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7984312d3168bd48f095a59573c581df = $(`<div id="html_7984312d3168bd48f095a59573c581df" style="width: 100.0%; height: 100.0%;">Mirador De Tunki </div>`)[0];
+                popup_4273db79fcbebbef008685e60a015dea.setContent(html_7984312d3168bd48f095a59573c581df);
+            
+        
+
+        marker_a1c8230d1ff82d7f74798967859a49ab.bindPopup(popup_4273db79fcbebbef008685e60a015dea)
+        ;
+
+        
+    
+    
+                marker_a1c8230d1ff82d7f74798967859a49ab.setIcon(icon_a152b732aeca87be001ddcdecfd02380);
+            
+    
+            var marker_64de3dd4a3ee170fb33ed69136ae5a36 = L.marker(
+                [-13.1536036, -72.5239983],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_7aa281279ccf86f0e8dbb49dfdee6c9d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6a26f544245af982198ba33660cd016a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_647ac45810192ec7823549aed03576d5 = $(`<div id="html_647ac45810192ec7823549aed03576d5" style="width: 100.0%; height: 100.0%;">Crónicas De Piedra </div>`)[0];
+                popup_6a26f544245af982198ba33660cd016a.setContent(html_647ac45810192ec7823549aed03576d5);
+            
+        
+
+        marker_64de3dd4a3ee170fb33ed69136ae5a36.bindPopup(popup_6a26f544245af982198ba33660cd016a)
+        ;
+
+        
+    
+    
+                marker_64de3dd4a3ee170fb33ed69136ae5a36.setIcon(icon_7aa281279ccf86f0e8dbb49dfdee6c9d);
+            
+    
+            var marker_0d2c098c701f382d2e1ac7f7a3246fca = L.marker(
+                [-13.14198522563, -72.5353002548],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_6bdbbd3ce5951f8c97bb27f48adf87e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b18e5b69194779a2fba648a0ba440841 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_385d01475490c37b1533656ee2b26c61 = $(`<div id="html_385d01475490c37b1533656ee2b26c61" style="width: 100.0%; height: 100.0%;">Catarata De Mandor</div>`)[0];
+                popup_b18e5b69194779a2fba648a0ba440841.setContent(html_385d01475490c37b1533656ee2b26c61);
+            
+        
+
+        marker_0d2c098c701f382d2e1ac7f7a3246fca.bindPopup(popup_b18e5b69194779a2fba648a0ba440841)
+        ;
+
+        
+    
+    
+                marker_0d2c098c701f382d2e1ac7f7a3246fca.setIcon(icon_6bdbbd3ce5951f8c97bb27f48adf87e8);
+            
+    
+            var marker_fd9f7a34027d39522416ac2afcba5373 = L.marker(
+                [-13.1492497, -72.5213299],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_1e7668fc7064bb6c66112226b4667b0a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_800797446342fb53a25fe426bab1183e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ae9f5e6a2cf221eb1f7fe06074643c79 = $(`<div id="html_ae9f5e6a2cf221eb1f7fe06074643c79" style="width: 100.0%; height: 100.0%;">Cascada De Aguas Calientes </div>`)[0];
+                popup_800797446342fb53a25fe426bab1183e.setContent(html_ae9f5e6a2cf221eb1f7fe06074643c79);
+            
+        
+
+        marker_fd9f7a34027d39522416ac2afcba5373.bindPopup(popup_800797446342fb53a25fe426bab1183e)
+        ;
+
+        
+    
+    
+                marker_fd9f7a34027d39522416ac2afcba5373.setIcon(icon_1e7668fc7064bb6c66112226b4667b0a);
+            
+    
+            var marker_2fc78e30c3bfcf4525f5be5b9af7dec2 = L.marker(
+                [-13.1303, -72.5942],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_f28077e38ea1f908759d1b2cfd2541c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2c91ecf2f4505b00afa3204621d72942 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7f22f1bde409400bab1b799490fd9bf2 = $(`<div id="html_7f22f1bde409400bab1b799490fd9bf2" style="width: 100.0%; height: 100.0%;">Camino Inka Jungle Tramo Santa Maria La Antigua Cocalmayo</div>`)[0];
+                popup_2c91ecf2f4505b00afa3204621d72942.setContent(html_7f22f1bde409400bab1b799490fd9bf2);
+            
+        
+
+        marker_2fc78e30c3bfcf4525f5be5b9af7dec2.bindPopup(popup_2c91ecf2f4505b00afa3204621d72942)
+        ;
+
+        
+    
+    
+                marker_2fc78e30c3bfcf4525f5be5b9af7dec2.setIcon(icon_f28077e38ea1f908759d1b2cfd2541c6);
+            
+    
+            var marker_1042b4b8fe690c1202e3876d162bb1b1 = L.marker(
+                [-13.129722, -72.598611],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_ed18188cc70649a05a3b0ebd047927d9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_15d7ff807ceba460456b35a5eb3b0506 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a3696f71e8f23206da801be7358e9fb = $(`<div id="html_6a3696f71e8f23206da801be7358e9fb" style="width: 100.0%; height: 100.0%;">Cataratas De Chaquiorco   </div>`)[0];
+                popup_15d7ff807ceba460456b35a5eb3b0506.setContent(html_6a3696f71e8f23206da801be7358e9fb);
+            
+        
+
+        marker_1042b4b8fe690c1202e3876d162bb1b1.bindPopup(popup_15d7ff807ceba460456b35a5eb3b0506)
+        ;
+
+        
+    
+    
+                marker_1042b4b8fe690c1202e3876d162bb1b1.setIcon(icon_ed18188cc70649a05a3b0ebd047927d9);
+            
+    
+            var marker_30ceb3aa737e74d570157bdc19f29d9d = L.marker(
+                [-13.088629, -72.507361],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_d46e71a35a3b92cc9d22a30553e6ee81 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cb84b2af10f0231d72aef2c457b3b5f6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e63d8641c0fde2d09421ba12ab7aef3d = $(`<div id="html_e63d8641c0fde2d09421ba12ab7aef3d" style="width: 100.0%; height: 100.0%;">Mirador Apu Yanantin - Machupicchu</div>`)[0];
+                popup_cb84b2af10f0231d72aef2c457b3b5f6.setContent(html_e63d8641c0fde2d09421ba12ab7aef3d);
+            
+        
+
+        marker_30ceb3aa737e74d570157bdc19f29d9d.bindPopup(popup_cb84b2af10f0231d72aef2c457b3b5f6)
+        ;
+
+        
+    
+    
+                marker_30ceb3aa737e74d570157bdc19f29d9d.setIcon(icon_d46e71a35a3b92cc9d22a30553e6ee81);
+            
+    
+            var marker_9a7cdb0298aade92226c4f53202d1fa0 = L.marker(
+                [-13.061142, -72.608974],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_2fa7bf94527b04947d0f2d3385952cf7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e1518ea683ae1163fb14baa25bff427d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_937249216eee06cbd74d96b5757b5147 = $(`<div id="html_937249216eee06cbd74d96b5757b5147" style="width: 100.0%; height: 100.0%;">Sitio Arqueologico De Inca Carcel</div>`)[0];
+                popup_e1518ea683ae1163fb14baa25bff427d.setContent(html_937249216eee06cbd74d96b5757b5147);
+            
+        
+
+        marker_9a7cdb0298aade92226c4f53202d1fa0.bindPopup(popup_e1518ea683ae1163fb14baa25bff427d)
+        ;
+
+        
+    
+    
+                marker_9a7cdb0298aade92226c4f53202d1fa0.setIcon(icon_2fa7bf94527b04947d0f2d3385952cf7);
+            
+    
+            var marker_173971aac9f39ceb69347c3de2ae9ed4 = L.marker(
+                [-13.05203, -72.60633],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_490df3b4e1e91d426de78446a470c411 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f5f8c8a0130b845e8da472c749ae5888 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3a6504b12ef6af2f3284815c52f492c7 = $(`<div id="html_3a6504b12ef6af2f3284815c52f492c7" style="width: 100.0%; height: 100.0%;">Cascada  De Pasto Grande</div>`)[0];
+                popup_f5f8c8a0130b845e8da472c749ae5888.setContent(html_3a6504b12ef6af2f3284815c52f492c7);
+            
+        
+
+        marker_173971aac9f39ceb69347c3de2ae9ed4.bindPopup(popup_f5f8c8a0130b845e8da472c749ae5888)
+        ;
+
+        
+    
+    
+                marker_173971aac9f39ceb69347c3de2ae9ed4.setIcon(icon_490df3b4e1e91d426de78446a470c411);
+            
+    
+            var marker_2794e1da250a08277f00ab9e33d84565 = L.marker(
+                [-13.055159, -72.444613],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_5d2010ca8713c37b2f2fcc779fb22fa0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_70cf7e689a1595815954abb42431069f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c03b46c8ed04f6f4619912cb0e6f5454 = $(`<div id="html_c03b46c8ed04f6f4619912cb0e6f5454" style="width: 100.0%; height: 100.0%;">Sitio Arqueológico De Incatambo</div>`)[0];
+                popup_70cf7e689a1595815954abb42431069f.setContent(html_c03b46c8ed04f6f4619912cb0e6f5454);
+            
+        
+
+        marker_2794e1da250a08277f00ab9e33d84565.bindPopup(popup_70cf7e689a1595815954abb42431069f)
+        ;
+
+        
+    
+    
+                marker_2794e1da250a08277f00ab9e33d84565.setIcon(icon_5d2010ca8713c37b2f2fcc779fb22fa0);
+            
+    
+            var marker_163ddf563a9ef90f0ccca1a560e6a5f9 = L.marker(
+                [-13.28041142995, -72.45104657951],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_1e45ae82faab0b3e9162344fbb3c7550 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f059827a315c1f196eba0f3bfa2298ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ab8222677011f82224b9bccd9385e582 = $(`<div id="html_ab8222677011f82224b9bccd9385e582" style="width: 100.0%; height: 100.0%;">Sitio Arqueológico De Paucarcancha</div>`)[0];
+                popup_f059827a315c1f196eba0f3bfa2298ea.setContent(html_ab8222677011f82224b9bccd9385e582);
+            
+        
+
+        marker_163ddf563a9ef90f0ccca1a560e6a5f9.bindPopup(popup_f059827a315c1f196eba0f3bfa2298ea)
+        ;
+
+        
+    
+    
+                marker_163ddf563a9ef90f0ccca1a560e6a5f9.setIcon(icon_1e45ae82faab0b3e9162344fbb3c7550);
+            
+    
+            var marker_3092a9eca5102f0bc4db51794ca0e41f = L.marker(
+                [-13.020713, -72.49539700000003],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_74994c7497d8ddfbc7f0b5ea8687d08b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_417ef168a9a2f882ff03e794dadc2e72 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_32c3e97434df9498c5af71d3810319e1 = $(`<div id="html_32c3e97434df9498c5af71d3810319e1" style="width: 100.0%; height: 100.0%;">Monumento Arqueológico Prehispánico Wamanmarca</div>`)[0];
+                popup_417ef168a9a2f882ff03e794dadc2e72.setContent(html_32c3e97434df9498c5af71d3810319e1);
+            
+        
+
+        marker_3092a9eca5102f0bc4db51794ca0e41f.bindPopup(popup_417ef168a9a2f882ff03e794dadc2e72)
+        ;
+
+        
+    
+    
+                marker_3092a9eca5102f0bc4db51794ca0e41f.setIcon(icon_74994c7497d8ddfbc7f0b5ea8687d08b);
+            
+    
+            var marker_44d1ec8dfc80783d008f26a8da2a71e6 = L.marker(
+                [-13.002764, -72.523844],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_de0496e9b30149fb10f6d6173c97546d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c81a297b5baca88e55090b21e1c58153 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_50ce529191efd7f0aa40adb5a740d3e2 = $(`<div id="html_50ce529191efd7f0aa40adb5a740d3e2" style="width: 100.0%; height: 100.0%;"> Sitio Arqueologico Capillayoq</div>`)[0];
+                popup_c81a297b5baca88e55090b21e1c58153.setContent(html_50ce529191efd7f0aa40adb5a740d3e2);
+            
+        
+
+        marker_44d1ec8dfc80783d008f26a8da2a71e6.bindPopup(popup_c81a297b5baca88e55090b21e1c58153)
+        ;
+
+        
+    
+    
+                marker_44d1ec8dfc80783d008f26a8da2a71e6.setIcon(icon_de0496e9b30149fb10f6d6173c97546d);
+            
+    
+            var marker_96a0b807d2fbdc4be1d6a2f40ee50525 = L.marker(
+                [-13.089619, -72.390014],
+                {
+}
+            ).addTo(map_6f1360202ef8fe64e400fc63a8aef904);
+        
+    
+            var icon_cb14045619357cb5e03a3b13230d4566 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d2d41b3dc91f2b57e5ec6fc6f3386f02 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d6472efb79ad53613003e497a41b700c = $(`<div id="html_d6472efb79ad53613003e497a41b700c" style="width: 100.0%; height: 100.0%;">Mirador San Luis</div>`)[0];
+                popup_d2d41b3dc91f2b57e5ec6fc6f3386f02.setContent(html_d6472efb79ad53613003e497a41b700c);
+            
+        
+
+        marker_96a0b807d2fbdc4be1d6a2f40ee50525.bindPopup(popup_d2d41b3dc91f2b57e5ec6fc6f3386f02)
+        ;
+
+        
+    
+    
+                marker_96a0b807d2fbdc4be1d6a2f40ee50525.setIcon(icon_cb14045619357cb5e03a3b13230d4566);
+            
+</script>
+</html>

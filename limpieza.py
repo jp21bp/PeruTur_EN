@@ -36,10 +36,10 @@ nom_3A = 'web_scrapped_inventario_recursos_turisticos.csv'
     # 1 = Ingresos internacionales
     # 2 = Ingresos a sitios turisticos
     # 3 = Lista de recursos de sitios turisticos
-path_1A = os.path.join(os.getcwd(), 'Datos', 'Originales', 'VisitantesInternacionales', nom_1A)
-path_1B = os.path.join(os.getcwd(), 'Datos', 'Originales', 'VisitantesInternacionales', nom_1B)
-path_1C = os.path.join(os.getcwd(), 'Datos', 'Originales', 'VisitantesInternacionales', nom_1C)
-path_2A = os.path.join(os.getcwd(), 'Datos', 'Originales', 'VisitantesSitios', nom_2A)
+path_1A = os.path.join(os.getcwd(), 'Datos', 'Original', 'VisitantesInternacionales', nom_1A)
+path_1B = os.path.join(os.getcwd(), 'Datos', 'Original', 'VisitantesInternacionales', nom_1B)
+path_1C = os.path.join(os.getcwd(), 'Datos', 'Original', 'VisitantesInternacionales', nom_1C)
+path_2A = os.path.join(os.getcwd(), 'Datos', 'Original', 'VisitantesSitios', nom_2A)
 path_3A = os.path.join(os.getcwd(), 'Datos','WebScrapped', nom_3A)
 
 ############################################################

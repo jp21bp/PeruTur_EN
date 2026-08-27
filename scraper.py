@@ -17,7 +17,7 @@ import os
 datos_path = os.path.join(
     os.getcwd(),
     'Datos', 
-    'Originales',
+    'Original',
     'InventorioRecursosTuristicos',
     'Inventario_recursos_turisticos.csv')
 df = pd.read_csv(datos_path, sep=';', encoding='latin-1', header=0)
