@@ -30,8 +30,8 @@ def ohe_corr(df_enc):
 
 ##### Reading Data
 #### File paths
-fpath_1 = 'Datos/Limpios/visitantes_internacionales.csv'
-fpath_2 = 'Datos/Limpios/visitantes_sitios_turisticos.csv'
+fpath_1 = 'Datos/Cleaned/visitantes_internacionales.csv'
+fpath_2 = 'Datos/Cleaned/visitantes_sitios_turisticos.csv'
 
 #### Loading data
 df_1 = pd.read_csv(f'{os.getcwd()}/{fpath_1}')
