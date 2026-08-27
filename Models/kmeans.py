@@ -1,6 +1,5 @@
 """
-Este archivo sera la creacion de los modelos:
-* K-Mean: Para hacer cluster de los turistas
+This file will perform K-Mean: To create Tourist Clusters
 """
 
 ##### Importaciones
@@ -225,36 +224,36 @@ plt.show()
 ###########################################
 ##### Insights de KMeans
 """
-Parece que KMeans obtuvo los mejores resultados con 6 clusters.
+It appears that K-Means yielded the best results with 6 clusters.
 
-Los 6 clusteres se dividen en la siguiente manera
+The 6 clusters are divided as follows:
 Cluster 1
 * OCM = Santa Rosa
-* Todos los: Meses, Paises, Continentes
-* I.e., el simple hecho de llegar al OCM Santa Rosa automaticamente crea un grupo
-    - Esto tiene coherencia con EDA, considerando que 32.9% de los visitantes internacionales
-            son chilenos y 80.3% de ellos entran por Santa Rosa
+* All: Months, Countries, Continents
+* That is, simply arriving at the Santa Rosa OCM automatically creates a group
+    - This is consistent with the EDA, considering that 32.9% of international visitors
+            are Chilean and 80.3% of them enter through Santa Rosa
 Cluster 2
 * OCM = Cebaf - Tumbes, AIJC
-* PAIS = Chile, EE.UU
-* CONTINENTE = Sur america y Norte america
-* Todos los Meses
-* I.e., el simple hecho de ser Chileno o Estadounidense automaticamente los ponene en un grupo
-    - Tiene coherencia con EDA, considerando que ambos paises son 48% de todos visitantes internacionales
+* COUNTRY = Chile, U.S.
+* CONTINENT = South America and North America
+* All Months
+* I.e., the mere fact of being Chilean or American automatically places them in a group
+    - This is consistent with EDA, considering that these two countries account for 48% of all international visitors
 Cluster 3
 * OCM = AIJCH, Cebaf - Tumbes
-* Todos los: Meses, Paises, Continentes
-* I.e., el hecho de venir de los OCMs AIJCH y Cebaf-Tumbes es un grupo
+* All: Months, Countries, Continents
+* I.e., coming from the AIJCH and Cebaf-Tumbes OCMs constitutes a group
 Cluster 4
-* OCM = Otros
-* Todos los: Meses, Paises, Continentes
-* I.e., el hecho de venir de los 'OTROS' OCMs es un grupo
+* OCM = Others
+* All: Months, Countries, Continents
+* I.e., coming from the “OTHERS” OCMs constitutes a group
 Cluster 5
 * OCM = Desaguadero
-* Todos los: Meses, Paises, Continentes
-* I.e., el hecho de venir de los 'DESAGUADERO' OCMs es un grupo
+* All: Months, Countries, Continents
+* I.e., coming from the ‘DESAGUADERO’ OCMs constitutes a group
 Cluster 6
 * OCM = Kasani
-* Todos los: Meses, Paises, Continentes
-* I.e., el hecho de venir de los 'KASANI' OCMs es un grupo
+* All: Months, Countries, Continents
+* I.e., coming from the ‘KASANI’ OCMs constitutes a group
 """
