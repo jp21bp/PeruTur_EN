@@ -47,6 +47,8 @@ The data insight development can be found [HERE](./insights.ipynb)
 
 The models' creation and evaluation can be found [HERE](./Models/)
 
+The hypothesis testing process can be found [HERE](./Models/regresion.py)
+
 <br><br>
 
 ## Data Structure
@@ -148,7 +150,9 @@ Predicting the number of visitors expected in a given month would help a busines
 
 Three candidate models were tested on this data: linear regression, lasso regression, and random forest. When an appropriate metric was applied to all candidates, the random forest model yielded the best results.
 
-When applying the model to the available data, it is estimated that there is a small average difference of 4,915 tourists between the prediction and the actual value. The results demonstrate that the model can be used with confidence to predict the number of tourists within a given month.
+When applying the model to the available data, it is estimated that there is a small average difference of 4,915 tourists between the prediction and the actual value. 
+
+Despite the difference in values, the hypotheis testing results reveal that the model results and the actual number of visitors does not have a statistically significant difference. In other words, the results demonstrate that the model can be used with confidence to predict the number of tourists within a given month.
 
 ![Pred Vs Actual](./Images/PredVSActual.png)
 
