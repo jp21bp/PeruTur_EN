@@ -16,13 +16,14 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error,\
     root_mean_squared_error, r2_score
 import joblib
-    # Para hacer webapp con streamlit
 import statsmodels.api as sm # OLS
 from sklearn.linear_model import LinearRegression # Lin Regression
 from sklearn.model_selection import cross_val_score
 from sklearn.linear_model import Lasso #Lasso regresion
 from sklearn.ensemble import RandomForestRegressor # RF
 from sklearn.model_selection import GridSearchCV
+#### Hypothesis testing
+from scipy import stats
 
 
 
@@ -174,34 +175,75 @@ df_resultados
 joblib.dump(gs.best_estimator_, './Modelos/model.pkl')
 
 #################################################################
-###### Creando visuales
-    # Voy hacer predicciones de los top 5 sitios turisticos
+###### Hypothesis testing
+    # Performing test on top 5 tourist sites
 
-##### Seleccionando datos adecuados
-#### Seleccionando top 5 sitios
+##### Choosing corresponding data
+#### Selecting the top 5 sites
 top_X = 5
 top_X_sitios = df_2_original.groupby(by='SITIO_TURISTICO', as_index=False)\
     ['NUMERO_VISITANTES'].agg('mean')\
     .sort_values(by='NUMERO_VISITANTES', ascending=False)\
     ['SITIO_TURISTICO'][:top_X].values.tolist()
 
-#### Seleccionando los indices
+#### Selecting site indices
 idxs = df_2_original[df_2_original['SITIO_TURISTICO'].isin(top_X_sitios)].index
 df_org_topX = df_2_original.iloc[idxs]
 df_enc_topX = df_2_encoded.iloc[idxs].drop(columns='NUMERO_VISITANTES')
 
 
-##### Modelo y prediccion
-#### Cargando el modelo y scaler
+##### Predictions
+#### Loading model and scaler
 rf = joblib.load('./Models/model.pkl')
-scaler = joblib.load('./Modelss/scaler.pkl')
-#### Invocando modelo
+scaler = joblib.load('./Models/scaler.pkl')
+#### Model invocation
 y_pred = rf.predict(df_enc_topX)
-#### Denormalizando
+#### Denormalizing
 y_pred_denorm = scaler.inverse_transform(y_pred.reshape(-1,1))
-#### Aregando preds a datos originales
+#### Appending predictions to original data
 df_org_topX['NUM_PRED'] = y_pred_denorm
 
+
+##### Hypothesis testing on 5 sites
+for site in top_X_sitios:
+    # Extracting data from site on current iteration
+    actual_nums = df_org_topX[df_org_topX['SITIO_TURISTICO'] == site]['NUMERO_VISITANTES']
+    pred_nums = df_org_topX[df_org_topX['SITIO_TURISTICO'] == site]['NUM_PRED']
+    # Test of normality
+    _, actual_nums_pvalue = stats.shapiro(actual_nums.values)
+    _, pred_nums_pvalue = stats.shapiro(pred_nums.values)
+    # Formalizing
+    actual_nums_normality = True if actual_nums_pvalue > 0.05 else False
+    pred_nums_normality = True if pred_nums_pvalue > 0.05 else False
+    print(f'Site {site} Normality - actual values: {actual_nums_normality}; predicted values: {pred_nums_normality}')
+    # Hypothesis testing
+    if actual_nums_normality and pred_nums_normality:
+        # Both need to be normal to use T-test
+        eq_var = True if actual_nums.std() == pred_nums.std() else False
+        _, t_pvalue = stats.ttest_ind(
+            actual_nums.values,
+            pred_nums.values,
+            equal_var=eq_var,
+            alternative='two-sided'
+        )
+        if t_pvalue < 0.05:
+            print(f'T-test p-value {t_pvalue}: accept the alternative hypothesis, the two samples are significantly different')
+        else:
+            print(f"T-test p-value {t_pvalue}: don't reject the null hypothesis, no significant difference between both samples")
+    else:
+        _, w_pvalue = stats.wilcoxon(
+            actual_nums.values,
+            pred_nums.values,
+            alternative='two-sided'
+        )
+        if t_pvalue < 0.05:
+            print(f'Wilcoxon p-value {w_pvalue}: accept the alternative hypothesis, the two samples are significantly different')
+        else:
+            print(f"Wilcoxon p-value {w_pvalue}: don't reject the null hypothesis, no significant difference between both samples")
+
+
+#################################################################
+    # Creating visuals #
 ##### Promedio de diferencia
 df_org_topX['DIFF'] = abs(df_org_topX['NUMERO_VISITANTES'] - df_org_topX['NUM_PRED'])
 diff_promedio = int(df_org_topX['DIFF'].mean().item())
