@@ -1,0 +1,16 @@
+services:
+  backend:
+    # build: ./Backend
+    image: backend_img
+    container_name: backend-container-2
+    ports:
+      - "8000:8000"
+
+  frontend:
+    # build: ./Frontend
+    image: frontend_img
+    container_name: frontend-container-2
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
