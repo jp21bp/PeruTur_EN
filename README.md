@@ -41,15 +41,35 @@ The recommendations on targeted marketing, dynamic budgeting, and free sites is 
 **Availability of Free Tourist Sites**: Machu Picchu, one of the seven wonders of the world, is the most popular tourist site in Peru, meaning that most of PeruTur’s customers will want to travel there. The analysis showed that there are 16 **free-entry** tourist sites within a 25-kilometer radius of Machu Picchu. This presents an opportunity to create advertisements that include these sites without incurring additional costs (other than gasoline).
 
 <br><br>
-The web scraping process can be found [HERE](scraper.py)
+The deployed frontend for the ML prediction model backend can be found [HERE](https://perutourismpredictioninterface.onrender.com/)
 
-The data insight development can be found [HERE](./insights.ipynb)
+Dockerfiles: [Backend](./Backend/Dockerfile) and [Frontend](./Frontend/Dockerfile)
+
+The model's data Pipeline and hypothesis testing can be found [HERE](./pipeline_and_hypothesis.py)
 
 The models' creation and evaluation can be found [HERE](./Models/)
 
-The hypothesis testing process can be found [HERE](./Models/regresion.py)
+The web scraping process can be found [HERE](scraper.py)
 
 <br><br>
+
+
+
+
+<br><br>
+El Modelo
+
+Dockerfiles: [Backend](./Backend/Dockerfile) y [Frontend](./Frontend/Dockerfile)
+
+La creación del data Pipeline y la preuba de hipotesis se encuentran [AQUÍ](./pipeline_y_hipotesis.py)
+
+La creación y evaluación de los modelos se encuentran [AQUÍ](./Modelos/)
+
+El proceso de web scraping de datos se encuentra [AQUÍ](./scraper.py)
+
+
+
+
 
 ## Data Structure
 Three different datasets were used to conduct the necessary analyses, and their components are as follows:
