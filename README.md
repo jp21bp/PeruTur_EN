@@ -56,20 +56,6 @@ The web scraping process can be found [HERE](scraper.py)
 
 
 
-<br><br>
-El Modelo
-
-Dockerfiles: [Backend](./Backend/Dockerfile) y [Frontend](./Frontend/Dockerfile)
-
-La creación del data Pipeline y la preuba de hipotesis se encuentran [AQUÍ](./pipeline_y_hipotesis.py)
-
-La creación y evaluación de los modelos se encuentran [AQUÍ](./Modelos/)
-
-El proceso de web scraping de datos se encuentra [AQUÍ](./scraper.py)
-
-
-
-
 
 ## Data Structure
 Three different datasets were used to conduct the necessary analyses, and their components are as follows:
