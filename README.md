@@ -22,6 +22,12 @@
     * [Site Ratios](#3-site-ratios)
 8. [Assumptions](#assumptions)
 
+## Tableau Dashboard
+
+![PeruTur Dashboard](./Images/Dashboard.png)
+
+Tableau Interactive Dashboard [HERE](https://public.tableau.com/views/PeruTurPacked/PeruTurDashboard?:language=en-EN&:showVizHome=no&:embed=yes)
+
 ## Project Background
 PeruTur is a small company that provides tourism services to international visitors entering Peru. It currently operates in the city of Lima and wants to expand throughout the country, but it is unsure of the best strategy to promote its services nationwide. This project uses Peruvian public data containing information on country-wide tourist sites and international tourists from **2019–2025**.
 
